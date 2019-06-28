@@ -9,6 +9,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 // import { TipohabitacionComponent } from './components/cliente/cliente-add/cliente-add.component';
 
 import { ClienteAddComponent } from './components/cliente/cliente-add/cliente-add.component';
+import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-add.component';
 
 const routes: Routes = [
   { path: 'clientes', component: ClienteComponent },
@@ -17,6 +18,9 @@ const routes: Routes = [
   { path: 'reservas', component: ReservaComponent},
   { path: 'categorias', component: CategoriaComponent},
   { path: 'productos', component: ProductoComponent},
+
+  { path: 'cliente-agregar', component: ClienteAddComponent},
+  { path: 'reserva-agregar', component: ReservaAddComponent},
 ];
 
 @NgModule({
