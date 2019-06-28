@@ -20,7 +20,7 @@ export class ReservaAddComponent implements OnInit {
 
 	reserva: Reserva = new Reserva();
 	clientes: Cliente[];
-	empleados: Empleados[];
+	empleados: Empleado[];
 	tiposhabitacion: TipoHabitacion[];
 	habitaciones: Habitacion[];
 
