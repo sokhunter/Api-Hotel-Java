@@ -1,0 +1,23 @@
+<h4>Reservas</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Cliente</th>
+            <th>Habitacion</th>
+            <th>F. Inicio</th>
+            <th>F. Fin</th>
+            <th>Comentario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reserva of reservas">
+            <td>{{reserva.id}}</td>
+            <td>{{reserva.cliente.nombre}}</td>
+            <td>{{reserva.habitacion.nombre}}<br><b>{{reserva.habitacion.tiposhabitacion.nombre}}</b></td>
+            <td>{{reserva.finicio}}</td>
+            <td>{{reserva.ffin}}</td>
+            <td>{{reserva.comentario}}</td>
+        </tr>
+    </tbody>
+</table>

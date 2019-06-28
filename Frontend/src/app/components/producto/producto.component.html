@@ -1,0 +1,19 @@
+<h4>Productos</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+            <td>{{producto.id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td><b>{{producto.categoria.nombre}}</b> - {{producto.descripcion}}</td>
+            <td>S/ {{producto.precio}}</td>
+        </tr>
+    </tbody>
+</table>

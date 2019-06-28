@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Dashboard - Hotel el Faro</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <h4>Opciones:</h4>
+      <ul>
+        <li><a routerLink="/clientes">Listar clientes</a></li>
+        <li><a routerLink="/empleados">Listar empleados</a></li>
+        <li><a routerLink="/habitaciones">Listar habitaciones</a></li>
+        <li><a routerLink="/reservas">Listar reservas</a></li>
+        <li><a routerLink="/categorias">Listar categorias</a></li>
+        <li><a routerLink="/productos">Listar productos</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

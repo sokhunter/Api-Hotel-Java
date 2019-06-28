@@ -1,0 +1,24 @@
+<h4>Clientes</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Documento</th>
+            <th>Cumpleaños</th>
+            <th>Vip</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombre}} {{cliente.apaterno}} {{cliente.amaterno}}</td>
+            <td>{{cliente.telefono}}</td>
+            <td>{{cliente.tipodocumento.nombre}}: {{cliente.numerodocumento}}</td>
+            <td>{{cliente.fnacimiento}}</td>
+            <td *ngIf="cliente.Vip">Si</td>
+            <td *ngIf="!cliente.Vip">No</td>
+        </tr>
+    </tbody>
+</table>

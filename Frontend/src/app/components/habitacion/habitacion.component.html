@@ -1,0 +1,19 @@
+<h4>Habitaciones</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Tipo de habitación</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let habitacion of habitaciones">
+            <td>{{habitacion.id}}</td>
+            <td>{{habitacion.tiposhabitacion.nombre}}</td>
+            <td>{{habitacion.nombre}}</td>
+            <td>{{habitacion.descripcion}}</td>
+        </tr>
+    </tbody>
+</table>

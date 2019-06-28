@@ -1,0 +1,19 @@
+<h4>Empleados</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Cumpleaños</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados">
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}} {{empleado.apaterno}} {{empleado.amaterno}}</td>
+            <td>{{empleado.tipodocumento.nombre}}: {{empleado.numerodocumento}}</td>
+            <td>{{empleado.fnacimiento}}</td>
+        </tr>
+    </tbody>
+</table>
