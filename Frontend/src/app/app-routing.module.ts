@@ -10,17 +10,25 @@ import { ProductoComponent } from './components/producto/producto.component';
 
 import { ClienteAddComponent } from './components/cliente/cliente-add/cliente-add.component';
 import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-add.component';
+import { EmpleadoAddComponent } from './components/empleado/empleado-add/empleado-add.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+import { PedidoAddComponent } from './components/pedido/pedido-add/pedido-add.component';
+import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
 
 const routes: Routes = [
   { path: 'clientes', component: ClienteComponent },
-  { path: 'empleados', component: EmpleadoComponent},
-  { path: 'habitaciones', component: HabitacionComponent},
-  { path: 'reservas', component: ReservaComponent},
-  { path: 'categorias', component: CategoriaComponent},
-  { path: 'productos', component: ProductoComponent},
+  { path: 'empleados', component: EmpleadoComponent },
+  { path: 'habitaciones', component: HabitacionComponent },
+  { path: 'reservas', component: ReservaComponent },
+  { path: 'categorias', component: CategoriaComponent },
+  { path: 'productos', component: ProductoComponent },
+  { path: 'pedidos', component: PedidoComponent },
+  { path: 'detallespedido', component: DetallePedidoComponent },
 
-  { path: 'cliente-agregar', component: ClienteAddComponent},
-  { path: 'reserva-agregar', component: ReservaAddComponent},
+  { path: 'cliente-agregar', component: ClienteAddComponent },
+  { path: 'reserva-agregar', component: ReservaAddComponent },
+  { path: 'empleado-agregar', component: EmpleadoAddComponent },
+  { path: 'pedido-agregar', component: PedidoAddComponent },//PEDIDO
 ];
 
 @NgModule({

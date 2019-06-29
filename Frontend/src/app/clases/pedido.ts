@@ -1,9 +1,8 @@
 import { Reserva } from "./reserva"
-import { Empleado } from "./empleado"
 
 export class Pedido {
     id: number;
     total: number;
+    fregistro:Date;
     reserva: Reserva;
-    empleado: Empleado;
 }

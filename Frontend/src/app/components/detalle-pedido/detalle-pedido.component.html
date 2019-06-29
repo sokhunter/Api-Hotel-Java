@@ -1,0 +1,24 @@
+<h4>Detalles</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Codigo Pedido</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detallepedido of detallespedido">
+            <td>{{detallepedido.id}}</td>
+            <td>{{detallepedido.pedido.id}}</td>
+            <td>{{detallepedido.producto.nombre}}</td>
+            <td>{{detallepedido.cantidad}}</td>
+            <td>{{detallepedido.precio}}</td>
+            <td>
+                <!-- <a class="btn btn-warning" routerLink="/detalle-pedido/{{pedido.id}}">Detalle</a> -->
+            </td>
+        </tr>
+    </tbody>
+</table>

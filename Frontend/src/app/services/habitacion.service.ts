@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators"
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class HabitacionService {
 
@@ -15,22 +15,22 @@ export class HabitacionService {
 	constructor(private clientHttp: HttpClient) { }
 
 	//Listar 
-	getHabitaciones(): Observable<habitacion[]> {
-	return this.clientHttp.get(this.urlHabitaciones).pipe(map(data => data as habitacion[]));
+	getHabitaciones(): Observable<Habitacion[]> {
+		return this.clientHttp.get(this.urlHabitaciones).pipe(map(data => data as Habitacion[]));
 	}
 
 	//Agregar 
-	addHabitacion(habitacion: habitacion): Observable<habitacion> {
-	return this.clientHttp.post<habitacion>(`${this.urlHabitaciones}/`, habitacion, { headers: this.headers });
+	addHabitacion(habitacion: Habitacion): Observable<Habitacion> {
+		return this.clientHttp.post<Habitacion>(`${this.urlHabitaciones}/`, habitacion, { headers: this.headers });
 	}
 
 	//Eliminar
-	deleteHabitacion(id: number): Observable<habitacion> {
-	return this.clientHttp.delete<habitacion>(`${this.urlHabitaciones}/${id}`, { headers: this.headers });
+	deleteHabitacion(id: number): Observable<Habitacion> {
+		return this.clientHttp.delete<Habitacion>(`${this.urlHabitaciones}/${id}`, { headers: this.headers });
 	}
 
 	//Editar 
-	editHabitacion(habitacion: habitacion): Observable<habitacion> {
-	return this.clientHttp.put<habitacion>(this.urlHabitaciones, habitacion, { headers: this.headers });
+	editHabitacion(habitacion: Habitacion): Observable<Habitacion> {
+		return this.clientHttp.put<Habitacion>(this.urlHabitaciones, habitacion, { headers: this.headers });
 	}
 }

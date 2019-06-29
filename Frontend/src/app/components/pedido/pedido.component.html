@@ -1,0 +1,23 @@
+<h4>Pedidos</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Codigo Reserva</th>
+            <th>F. Registro</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pedido of pedidos">
+            <td>{{pedido.id}}</td>
+            <td>{{pedido.reserva.id}}</td>
+            <td>{{pedido.fregistro}}</td>
+            <td>{{pedido.total}}</td>
+            <td>
+                <a class="btn btn-warning" routerLink="/detallespedido">Detalle</a>
+                <!-- <a class="btn btn-danger" (click)="borrarCategoria(categoria.id)">Eliminar</a> -->
+            </td>
+        </tr>
+    </tbody>
+</table>

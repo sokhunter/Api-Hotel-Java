@@ -1,0 +1,70 @@
+<h3><small>Agregar empleado</small></h3>
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="cliente">Cliente</label>
+                <select [(ngModel)]="reserva.cliente.id" class="form-control" name="cliente" id="cliente">
+                    <option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{cliente.nombre}}
+                        {{cliente.apaterno}} {{cliente.amaterno}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="empleado">Empleado</label>
+                <select [(ngModel)]="reserva.empleado.id" class="form-control" name="empleado" id="empleado">
+                    <option *ngFor="let empleado of empleados" value="{{empleado.id}}">{{empleado.nombre}}
+                        {{empleado.apaterno}} {{empleado.amaterno}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="f_inicio">Fecha de inicio</label>
+                <input [(ngModel)]="reserva.finicio" class="form-control" type="date" name="f_inicio" id="f_inicio">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="f_fin">Fecha de termino</label>
+                <input [(ngModel)]="reserva.ffin" class="form-control" type="date" name="f_fin" id="f_fin">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="tipo_habitacion">Tipo de habitacion</label>
+                <!-- <select [(ngModel)]="reserva.habitacion.tiposhabitacion.id" class="form-control" name="tipo_habitacion" id="habitacion">
+					<option *ngFor="let habitacion of habitaciones">{{habitacion.nombre}}</option>
+				</select> -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="habitacion">Habitacion</label>
+                <select [(ngModel)]="reserva.habitacion.id" class="form-control" name="habitacion" id="habitacion">
+                    <option *ngFor="let habitacion of habitaciones" value="{{habitacion.id}}">{{habitacion.nombre}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="comentario">Comentario</label>
+                <textarea [(ngModel)]="reserva.comentario" class="form-control" id="comentario"
+                    name="comentario"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button (click)="reservaAdd()" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>

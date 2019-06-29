@@ -3,8 +3,7 @@ import { Pedido } from './pedido';
 
 export class DetallePedido {
     id: number;
-    precio: number;
-    descuento: number;
+    precio: number
     cantidad: number;
     producto: Producto;
     pedido: Pedido;

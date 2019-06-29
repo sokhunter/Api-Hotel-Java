@@ -13,6 +13,13 @@ import { HabitacionComponent } from './components/habitacion/habitacion.componen
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-add.component';
+import { EmpleadoAddComponent } from './components/empleado/empleado-add/empleado-add.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+import { PedidoAddComponent } from './components/pedido/pedido-add/pedido-add.component';
+import { PedidoEditComponent } from './components/pedido/pedido-edit/pedido-edit.component';
+import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
+import { DetallePedidoAddComponent } from './components/detalle-pedido/detalle-pedido-add/detalle-pedido-add.component';
+import { DetallePedidoEditComponent } from './components/detalle-pedido/detalle-pedido-edit/detalle-pedido-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-ad
     HabitacionComponent,
     ReservaComponent,
     CategoriaComponent,
-    ReservaAddComponent
+    ReservaAddComponent,
+    EmpleadoAddComponent,
+    PedidoComponent,
+    PedidoAddComponent,
+    PedidoEditComponent,
+    DetallePedidoComponent,
+    DetallePedidoAddComponent,
+    DetallePedidoEditComponent
   ],
   imports: [
     BrowserModule,
