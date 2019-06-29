@@ -1,6 +1,7 @@
 package pe.faro.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,6 +80,19 @@ public class PedidoServiceImpl implements PedidoService {
 			System.out.print(e.getMessage());
 		}
 		return flag;*/
+	}
+
+	@Override
+	public Optional<Pedido> FindById(int id) {
+		Optional<Pedido> obj= null;
+		try {
+			obj = pedidoRepo.findById(id);
+			
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return obj;
 	}
 
 }

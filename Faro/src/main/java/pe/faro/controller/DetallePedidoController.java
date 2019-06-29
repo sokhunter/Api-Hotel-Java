@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.faro.entity.DetallePedido;
+import pe.faro.exception.ModeloNotFoundException;
 import pe.faro.service.DetallePedidoService;
 
 @RestController
@@ -85,6 +86,19 @@ public class DetallePedidoController {
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 			return new ResponseEntity<DetallePedido>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping(value="/buscarporpedido/{id}")
+	public ResponseEntity<List<DetallePedido>> buscarPorPedido(@PathVariable int id){
+		try {
+			List<DetallePedido> obj= serviceDetallePedido.buscarPorPedido(id);
+			if(obj !=null){
+				return new ResponseEntity<List<DetallePedido>>(obj, HttpStatus.OK);				
+			}else {
+				throw new ModeloNotFoundException("No se encontraron detalles");
+			}			
+		} catch (Exception e) {
+			throw new ModeloNotFoundException("No se encontraron detalles");
 		}
 	}
 

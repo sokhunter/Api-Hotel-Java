@@ -1,6 +1,7 @@
 package pe.faro.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.faro.entity.Pedido;
+import pe.faro.exception.ModeloNotFoundException;
 import pe.faro.service.PedidoService;
 
 @RestController
@@ -40,7 +42,22 @@ public class PedidoController {
 			return new ResponseEntity<List<Pedido>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<Pedido> buscarPorID(@PathVariable int id){
+		try {
+			Optional<Pedido> obj = servicePedido.FindById(id);
+			if(obj.isPresent()){
+				return new ResponseEntity<Pedido>(obj.get(), HttpStatus.OK);				
+			}else {
+				//return new ResponseEntity<Categoria>(HttpStatus.NOT_FOUND);
+				throw new ModeloNotFoundException("Categoria no encontrada");
+			}			
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+			//return new ResponseEntity<Categoria>(HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new ModeloNotFoundException("Categoria no encontrada");
+		}
+	}
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pedido> insertar(@Valid @RequestBody Pedido obj){
 		
