@@ -16,7 +16,9 @@
     <tbody>
         <tr *ngFor="let reserva of reservas">
             <td>
-                <a routerLink="/editar-reserva/{{reserva.id}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                <a routerLink="/editar-reserva/{{reserva.id}}" class="btn btn-sm btn-primary"><i
+                        class="fa fa-edit"></i></a>
+                <a class="btn btn-danger" (click)="borrarReserva(reserva.id)"><i class="fa fa-remove"></i></a>
             </td>
             <td>{{reserva.cliente.nombre}}</td>
             <td>{{reserva.habitacion.nombre}}<br><b>{{reserva.habitacion.tiposhabitacion.nombre}}</b></td>

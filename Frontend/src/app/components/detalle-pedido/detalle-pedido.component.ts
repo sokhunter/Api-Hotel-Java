@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pedido } from 'src/app/clases/pedido';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
 import { DetallePedido } from 'src/app/clases/detalle-pedido';
 
@@ -13,16 +13,15 @@ export class DetallePedidoComponent implements OnInit {
   @Input() pedido: Pedido;
   detallePedidos: DetallePedido[];
 
-  pedidoId: number;
-
   constructor(private route: ActivatedRoute,
     private detallePedidoService: DetallePedidoService) { }
 
   ngOnInit() {
-    this.pedidoId = this.pedido.id;
-    this.getDetallesPedido();
+    this.getReserva();
   }
-  getDetallesPedido() {
-    this.detallePedidoService.buscarDetalleDePedido(6).subscribe(data => (this.detallePedidos = data));
+  getReserva(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);//si encuentra el parametro
+    this.detallePedidoService.buscarDetalleDePedido(id).subscribe(data => (this.detallePedidos = data));
   }
 }

@@ -24,14 +24,14 @@ const routes: Routes = [
   { path: 'categorias', component: CategoriaComponent },
   { path: 'productos', component: ProductoComponent },
   { path: 'pedidos', component: PedidoComponent },
-  { path: 'detallespedido', component: DetallePedidoComponent },
+  { path: 'detallespedido/:id', component: DetallePedidoComponent },
 
-  { path: 'cliente-agregar', component: ClienteAddComponent},
-  { path: 'agregar-reserva', component: ReservaAddComponent},
+  { path: 'cliente-agregar', component: ClienteAddComponent },
+  { path: 'agregar-reserva', component: ReservaAddComponent },
 
   { path: 'editar-reserva/:id', component: ReservaEditComponent },
   { path: 'empleado-agregar', component: EmpleadoAddComponent },
-  { path: 'pedido-agregar', component: PedidoAddComponent },//PEDIDO
+  { path: 'pedido-agregar', component: PedidoAddComponent },
 ];
 
 @NgModule({

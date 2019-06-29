@@ -1,4 +1,6 @@
-<h4>Pedidos</h4>
+<h3><small>Pedido</small>
+    <a routerLink="/pedido-agregar" class="float-right btn btn-primary btn-sm">Agregar</a>
+</h3>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -15,7 +17,7 @@
             <td>{{pedido.fregistro}}</td>
             <td>{{pedido.total}}</td>
             <td>
-                <a class="btn btn-warning" routerLink="/detallespedido">Detalle</a>
+                <a class="btn btn-warning" routerLink="/detallespedido/{{pedido.id}}">Detalle</a>
                 <!-- <a class="btn btn-danger" (click)="borrarCategoria(categoria.id)">Eliminar</a> -->
             </td>
         </tr>

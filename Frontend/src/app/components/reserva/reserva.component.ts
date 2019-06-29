@@ -3,9 +3,9 @@ import { ReservaService } from 'src/app/services/reserva.service';
 import { Reserva } from 'src/app/clases/reserva';
 
 @Component({
-  selector: 'app-reserva',
-  templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.css']
+	selector: 'app-reserva',
+	templateUrl: './reserva.component.html',
+	styleUrls: ['./reserva.component.css']
 })
 export class ReservaComponent implements OnInit {
 
@@ -14,7 +14,11 @@ export class ReservaComponent implements OnInit {
 	constructor(private reservaService: ReservaService) { }
 
 	ngOnInit() {
-  		this.reservaService.getReservas().subscribe(data => (this.reservas = data));
+		this.reservaService.getReservas().subscribe(data => (this.reservas = data));
+	}
+	borrarReserva(id: number) {
+		this.reservas = this.reservas.filter(c => c.id !== id);
+		this.reservaService.deleteReserva(id).subscribe();
 	}
 
 }

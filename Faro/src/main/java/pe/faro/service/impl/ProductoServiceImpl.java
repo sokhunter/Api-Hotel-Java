@@ -1,6 +1,7 @@
 package pe.faro.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,24 @@ public class ProductoServiceImpl implements ProductoService {
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Producto> buscarPorCategoria(int id) {
+		return productoRepo.buscarPorCategoria(id);
+	}
+
+	@Override
+	public Optional<Producto> FindById(int id) {
+		Optional<Producto> obj= null;
+		try {
+			obj = productoRepo.findById(id);
+			
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return obj;
 	}
 
 }

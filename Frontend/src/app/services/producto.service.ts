@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators"
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ProductoService {
 
@@ -16,21 +16,30 @@ export class ProductoService {
 
 	//Listar 
 	getProductos(): Observable<Producto[]> {
-	return this.clientHttp.get(this.urlProductos).pipe(map(data => data as Producto[]));
+		return this.clientHttp.get(this.urlProductos).pipe(map(data => data as Producto[]));
 	}
 
 	//Agregar 
 	addProducto(producto: Producto): Observable<Producto> {
-	return this.clientHttp.post<Producto>(`${this.urlProductos}/`, producto, { headers: this.headers });
+		return this.clientHttp.post<Producto>(`${this.urlProductos}/`, producto, { headers: this.headers });
 	}
 
 	//Eliminar
 	deleteProducto(id: number): Observable<Producto> {
-	return this.clientHttp.delete<Producto>(`${this.urlProductos}/${id}`, { headers: this.headers });
+		return this.clientHttp.delete<Producto>(`${this.urlProductos}/${id}`, { headers: this.headers });
 	}
 
 	//Editar 
 	editProducto(producto: Producto): Observable<Producto> {
-	return this.clientHttp.put<Producto>(this.urlProductos, producto, { headers: this.headers });
+		return this.clientHttp.put<Producto>(this.urlProductos, producto, { headers: this.headers });
+	}
+
+	//buscar por id
+	buscarPorID(id: number): Observable<Producto> {
+		return this.clientHttp.get<Producto>(`${this.urlProductos}/${id}`).pipe();
+	}
+	//filtro
+	buscarPorCategoria(categoria: number): Observable<Producto[]> {
+		return this.clientHttp.get(`${this.urlProductos}/buscarporcategoria/${categoria}`).pipe(map(data => data as Producto[]));
 	}
 }

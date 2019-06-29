@@ -34,4 +34,5 @@ export class PedidoService {
   editPedido(pedido: Pedido): Observable<Pedido> {
     return this.clientHttp.put<Pedido>(this.urlPedidos, pedido, { headers: this.headers });
   }
+
 }

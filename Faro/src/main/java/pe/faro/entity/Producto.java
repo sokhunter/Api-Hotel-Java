@@ -8,10 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="productos")
+@NamedQueries({
+	@NamedQuery(
+			name="Producto.buscarPorCategoria", 
+			query="select c from Producto c where c.categoria.id = ?1" 
+	)
+})
 public class Producto implements Serializable{
 
 	private static final long serialVersionUID = 1L;

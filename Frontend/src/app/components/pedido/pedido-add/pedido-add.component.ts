@@ -26,7 +26,7 @@ export class PedidoAddComponent implements OnInit {
   productoID: number;
   producto: Producto;
 
-  constructor(private pedidoService: PedidoService, 
+  constructor(private pedidoService: PedidoService,
     private reservaService: ReservaService,
     private detalleService: DetallePedidoService,
     private categoriaService: CategoriaService,
@@ -44,21 +44,21 @@ export class PedidoAddComponent implements OnInit {
     this.pedidoService.addPedido(this.pedido).subscribe(data => { alert("El pedido se registró correctamente"); });
   }
 
-	filtrarProductos(): void {
-		// this.productoService.buscarPorCategoria(this.categoria).subscribe(data => (this.productos = data));
+  filtrarProductos(): void {
+    this.productoService.buscarPorCategoria(this.categoria).subscribe(data => (this.productos = data));
   }
   detalleAdd(): void {
-    // this.productoService.buscarPorID(this.productoID).subscribe(data => (this.producto = data));
+    this.productoService.buscarPorID(this.productoID).subscribe(data => (this.producto = data));
     this.detalle = new DetallePedido();
     this.detalle.producto = this.producto;
-    // this.detalle.precio = this.producto.precio;
+    this.detalle.precio = this.producto.precio;//coment
     this.detalle.cantidad = 1;
     this.detalles.push(this.detalle);
     console.log(this.detalles);
   }
   detalleDelete(id): void {
     //CORREGIR
-    // this.detalles.find(function(element) {element.producto.id == id});
-    // this.detalles.splice(1, 1);
+    // this.detalles.(function(element) {element.producto.id == id});
+    // this.detalles.splice(1, find1);
   }
 }
