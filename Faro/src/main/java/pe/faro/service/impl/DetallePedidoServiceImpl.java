@@ -59,4 +59,9 @@ public class DetallePedidoServiceImpl implements DetallePedidoService {
 		return flag;
 	}
 
+	@Override
+	public List<DetallePedido> buscarPorPedido(int id) {
+		return detallePedidoRepo.buscarPorPedido(id);
+	}
+
 }

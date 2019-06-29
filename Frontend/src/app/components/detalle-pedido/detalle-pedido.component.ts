@@ -19,13 +19,10 @@ export class DetallePedidoComponent implements OnInit {
     private detallePedidoService: DetallePedidoService) { }
 
   ngOnInit() {
-    console.log(this.pedido);
     this.pedidoId = this.pedido.id;
-    console.log(this.pedidoId);
-    console.log(this.pedido);
     this.getDetallesPedido();
   }
   getDetallesPedido() {
-    this.detallePedidoService.buscarDetalleDePedido(this.pedidoId).subscribe(data => (this.detallePedidos = data));
+    this.detallePedidoService.buscarDetalleDePedido(6).subscribe(data => (this.detallePedidos = data));
   }
 }

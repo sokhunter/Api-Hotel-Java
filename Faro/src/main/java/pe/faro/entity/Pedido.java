@@ -1,6 +1,7 @@
 package pe.faro.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,14 +20,12 @@ public class Pedido implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private double total;
+	private Date fregistro;
 	
 	@ManyToOne
 	@JoinColumn(name="reserva_id")
 	private Reserva reserva;
 	
-	@ManyToOne
-	@JoinColumn(name="empleado_id")
-	private Empleado empleado;
 
 	public int getId() {
 		return id;
@@ -52,12 +51,14 @@ public class Pedido implements Serializable{
 		this.reserva = reserva;
 	}
 
-	public Empleado getEmpleado() {
-		return empleado;
+	public Date getFregistro() {
+		return fregistro;
 	}
 
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
+	public void setFregistro(Date fregistro) {
+		this.fregistro = fregistro;
 	}
+
+
 
 }

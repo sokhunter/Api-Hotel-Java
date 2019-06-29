@@ -8,10 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="detallepedidos")
+@NamedQueries({
+	@NamedQuery(
+			name="DetallePedido.buscarPorPedido", 
+			query="select c from DetallePedido c where c.pedido.id = ?1" 
+	)
+})
 public class DetallePedido implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +27,6 @@ public class DetallePedido implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private double precio;
-	private int descuento;
 	private int cantidad;
 	
 	@ManyToOne
@@ -44,14 +51,6 @@ public class DetallePedido implements Serializable{
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
-	}
-
-	public int getDescuento() {
-		return descuento;
-	}
-
-	public void setDescuento(int descuento) {
-		this.descuento = descuento;
 	}
 
 	public int getCantidad() {
