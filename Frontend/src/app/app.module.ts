@@ -14,6 +14,13 @@ import { ReservaComponent } from './components/reserva/reserva.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-add.component';
 import { ReservaEditComponent } from './components/reserva/reserva-edit/reserva-edit.component';
+import { EmpleadoAddComponent } from './components/empleado/empleado-add/empleado-add.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+import { PedidoAddComponent } from './components/pedido/pedido-add/pedido-add.component';
+import { PedidoEditComponent } from './components/pedido/pedido-edit/pedido-edit.component';
+import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
+import { DetallePedidoAddComponent } from './components/detalle-pedido/detalle-pedido-add/detalle-pedido-add.component';
+import { DetallePedidoEditComponent } from './components/detalle-pedido/detalle-pedido-edit/detalle-pedido-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,14 @@ import { ReservaEditComponent } from './components/reserva/reserva-edit/reserva-
     ReservaComponent,
     CategoriaComponent,
     ReservaAddComponent,
-    ReservaEditComponent
+    ReservaEditComponent,
+    EmpleadoAddComponent,
+    PedidoComponent,
+    PedidoAddComponent,
+    PedidoEditComponent,
+    DetallePedidoComponent,
+    DetallePedidoAddComponent,
+    DetallePedidoEditComponent
   ],
   imports: [
     BrowserModule,

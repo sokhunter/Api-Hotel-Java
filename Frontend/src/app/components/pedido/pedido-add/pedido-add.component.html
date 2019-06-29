@@ -1,0 +1,33 @@
+<h3><small>Agregar pedido</small></h3>
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="reserva">Reserva</label>
+                <select [(ngModel)]="pedido.reserva.id" class="form-control" name="reserva" id="reserva">
+                    <option *ngFor="let reserva of reservas" value="{{reserva.id}}">{{reserva.id}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="f_registro">Fecha de registro</label>
+                <input [(ngModel)]="pedido.fregistro" class="form-control" type="date" name="f_registro"
+                    id="f_registro">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="total">Total</label>
+                <input [(ngModel)]="pedido.total" class="form-control" type="number" name="total" id="total">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button (click)="pedidoAdd()" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>

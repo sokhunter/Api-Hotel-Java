@@ -14,9 +14,9 @@ import { Habitacion } from 'src/app/clases/habitacion';
 import { TipoHabitacion } from 'src/app/clases/tipo-habitacion';
 
 @Component({
-  selector: 'app-reserva-add',
-  templateUrl: './reserva-add.component.html',
-  styleUrls: ['./reserva-add.component.css']
+	selector: 'app-reserva-add',
+	templateUrl: './reserva-add.component.html',
+	styleUrls: ['./reserva-add.component.css']
 })
 export class ReservaAddComponent implements OnInit {
 

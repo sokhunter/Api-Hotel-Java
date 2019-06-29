@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators"
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class HabitacionService {
 
@@ -16,26 +16,26 @@ export class HabitacionService {
 
 	//Listar 
 	getHabitaciones(): Observable<Habitacion[]> {
-	return this.clientHttp.get(this.urlHabitaciones).pipe(map(data => data as Habitacion[]));
+		return this.clientHttp.get(this.urlHabitaciones).pipe(map(data => data as Habitacion[]));
 	}
 
 	//Agregar 
 	addHabitacion(habitacion: Habitacion): Observable<Habitacion> {
-	return this.clientHttp.post<Habitacion>(`${this.urlHabitaciones}/`, habitacion, { headers: this.headers });
+		return this.clientHttp.post<Habitacion>(`${this.urlHabitaciones}/`, habitacion, { headers: this.headers });
 	}
 
 	//Eliminar
 	deleteHabitacion(id: number): Observable<Habitacion> {
-	return this.clientHttp.delete<Habitacion>(`${this.urlHabitaciones}/${id}`, { headers: this.headers });
+		return this.clientHttp.delete<Habitacion>(`${this.urlHabitaciones}/${id}`, { headers: this.headers });
 	}
 
 	//Editar 
 	editHabitacion(habitacion: Habitacion): Observable<Habitacion> {
-	return this.clientHttp.put<Habitacion>(this.urlHabitaciones, habitacion, { headers: this.headers });
+		return this.clientHttp.put<Habitacion>(this.urlHabitaciones, habitacion, { headers: this.headers });
 	}
 
 	//buscar por tipo
 	buscarPorTipo(tipoHabitacionId: number): Observable<Habitacion[]> {
-	return this.clientHttp.get(`${this.urlHabitaciones}/buscarportipo/${tipoHabitacionId}`).pipe(map(data => data as Habitacion[]));
+		return this.clientHttp.get(`${this.urlHabitaciones}/buscarportipo/${tipoHabitacionId}`).pipe(map(data => data as Habitacion[]));
 	}
 }
