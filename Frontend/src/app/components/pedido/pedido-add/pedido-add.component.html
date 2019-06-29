@@ -13,17 +13,44 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="f_registro">Fecha de registro</label>
-                <input [(ngModel)]="pedido.fregistro" class="form-control" type="date" name="f_registro"
-                    id="f_registro">
+                <label for="categoria">Categoria</label>
+                <select (change)="filtrarProductos()" class="form-control" name="categoria" id="categoria">
+                    <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.nombre}}</option>
+                </select>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="total">Total</label>
-                <input [(ngModel)]="pedido.total" class="form-control" type="number" name="total" id="total">
+                <label for="producto">Producto</label>
+                <select [(ngModel)]="productoID" (change)="detalleAdd()" class="form-control" name="producto" id="producto">
+                    <option *ngFor="let producto of productos" value="{{producto.id}}">{{producto.nombre}}</option>
+                </select>
             </div>
         </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Quitar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detallepedido of detalles">
+                    <td>{{detallepedido.producto.nombre}}</td>
+                    <td>{{detallepedido.cantidad}}</td>
+                    <td>{{detallepedido.precio}}</td>
+                    <td>{{detallepedido.cantidad * detallepedido.precio}}</td>
+                    <td>
+                        <a class="btn btn-danger" (click)="pedidoDelete()"><i class="fa fa-close"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="row">
         <div class="col-md-12">
