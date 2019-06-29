@@ -36,4 +36,9 @@ public class HabitcaionServiceImpl implements HabitacionService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public List<Habitacion> buscarPorTipo(int tipoHabitacionId) {
+		return habitacionRepo.buscarPorTipo(tipoHabitacionId);
+	}
 }

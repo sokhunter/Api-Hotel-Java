@@ -1,8 +1,11 @@
-<h4>Reservas</h4>
+<h3>
+    <small>Reserva</small>
+    <a routerLink="/agregar-reserva" class="float-right btn btn-primary btn-sm">Agregar</a>
+</h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>N°</th>
+            <th>Opciones</th>
             <th>Cliente</th>
             <th>Habitacion</th>
             <th>F. Inicio</th>
@@ -12,7 +15,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let reserva of reservas">
-            <td>{{reserva.id}}</td>
+            <td>
+                <a routerLink="/editar-reserva/{{reserva.id}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+            </td>
             <td>{{reserva.cliente.nombre}}</td>
             <td>{{reserva.habitacion.nombre}}<br><b>{{reserva.habitacion.tiposhabitacion.nombre}}</b></td>
             <td>{{reserva.finicio}}</td>

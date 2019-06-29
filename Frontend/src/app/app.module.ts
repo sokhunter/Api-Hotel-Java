@@ -13,6 +13,7 @@ import { HabitacionComponent } from './components/habitacion/habitacion.componen
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-add.component';
+import { ReservaEditComponent } from './components/reserva/reserva-edit/reserva-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReservaAddComponent } from './components/reserva/reserva-add/reserva-ad
     HabitacionComponent,
     ReservaComponent,
     CategoriaComponent,
-    ReservaAddComponent
+    ReservaAddComponent,
+    ReservaEditComponent
   ],
   imports: [
     BrowserModule,

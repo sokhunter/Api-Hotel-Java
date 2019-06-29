@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { Reserva } from 'src/app/clases/reserva';
 
@@ -14,13 +14,14 @@ import { Habitacion } from 'src/app/clases/habitacion';
 import { TipoHabitacion } from 'src/app/clases/tipo-habitacion';
 
 @Component({
-  selector: 'app-reserva-add',
-  templateUrl: './reserva-add.component.html',
-  styleUrls: ['./reserva-add.component.css']
+  selector: 'app-reserva-edit',
+  templateUrl: './reserva-edit.component.html',
+  styleUrls: ['./reserva-edit.component.css']
 })
-export class ReservaAddComponent implements OnInit {
+export class ReservaEditComponent implements OnInit {
 
-	reserva: Reserva = new Reserva();
+	// reserva: Reserva = new Reserva();
+	@Input() reserva: Reserva;
 	clientes: Cliente[];
 	empleados: Empleado[];
 	tiposhabitacion: TipoHabitacion[];
@@ -29,6 +30,7 @@ export class ReservaAddComponent implements OnInit {
 
 	constructor(
 		private router: Router,
+		private route: ActivatedRoute,
 		private reservaService: ReservaService,
 		private clienteService: ClienteService,
 		private empleadoService: EmpleadoService,
@@ -37,23 +39,26 @@ export class ReservaAddComponent implements OnInit {
 		) { }
 
 	ngOnInit() {
-		this.reserva.cliente = new Cliente();
-		this.reserva.empleado = new Empleado();
-		this.reserva.habitacion = new Habitacion();
-		this.reserva.habitacion.tiposhabitacion = new TipoHabitacion();
-
+		this.getReserva();
 		this.clienteService.getClientes().subscribe(data => (this.clientes = data));
 		this.empleadoService.getEmpleados().subscribe(data => (this.empleados = data));
 		this.tipoHabitacionService.getTipoHabitaciones().subscribe(data => (this.tiposHabitacion = data));
+		this.filtrarHabitaciones();
+
 	}
 
-	reservaAdd(): void {
-		this.reservaService.addReserva(this.reserva).subscribe(data => { alert("La reserva se registró correctamente"); });
-		this.router.navigate(['/reservas']);
+	getReserva(): void {
+		const id = +this.route.snapshot.paramMap.get('id');
+		this.reservaService.getReserva(id).subscribe(reserva => this.reserva = reserva);
 	}
 
 	filtrarHabitaciones(): void {
 		this.habitacionService.buscarPorTipo(this.reserva.habitacion.tiposhabitacion.id).subscribe(data => (this.habitaciones = data));
+	}
+
+	reservaEdit(): void {
+		this.reservaService.editReserva(this.reserva).subscribe(data => { alert("La reserva se actualizó correctamente"); });
+		this.router.navigate(['/reservas']);
 	}
 
 }

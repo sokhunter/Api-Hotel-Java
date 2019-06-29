@@ -9,9 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
 @Table(name="habitaciones")
+@NamedQueries({
+	@NamedQuery(
+			name="Habitacion.buscarPorTipo", 
+			query="select c from Habitacion c where c.tiposhabitacion.id = ?1"
+	)
+})
+
 public class Habitacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 

@@ -86,4 +86,17 @@ public class ReservaServiceImpl implements ReservaService {
 		return flag;
 	}
 
+	@Override
+	public Optional<Reserva> buscarPorId(int id) {
+		Optional<Reserva> objReserva = null;
+		try {
+			objReserva = reservaRepo.findById(id);
+			
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return objReserva;
+	}
+
 }

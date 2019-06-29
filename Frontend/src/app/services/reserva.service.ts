@@ -19,6 +19,11 @@ export class ReservaService {
 	return this.clientHttp.get(this.urlReservas).pipe(map(data => data as Reserva[]));
 	}
 
+	//Obtener reserva por id
+	getReserva(id: number): Observable<Reserva> {
+	return this.clientHttp.get<Reserva>(`${this.urlReservas}/${id}`).pipe();
+	}
+
 	//Agregar 
 	addReserva(reserva: Reserva): Observable<Reserva> {
 	return this.clientHttp.post<Reserva>(`${this.urlReservas}/`, reserva, { headers: this.headers });

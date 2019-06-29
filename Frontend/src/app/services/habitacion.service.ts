@@ -33,4 +33,9 @@ export class HabitacionService {
 	editHabitacion(habitacion: Habitacion): Observable<Habitacion> {
 	return this.clientHttp.put<Habitacion>(this.urlHabitaciones, habitacion, { headers: this.headers });
 	}
+
+	//buscar por tipo
+	buscarPorTipo(tipoHabitacionId: number): Observable<Habitacion[]> {
+	return this.clientHttp.get(`${this.urlHabitaciones}/buscarportipo/${tipoHabitacionId}`).pipe(map(data => data as Habitacion[]));
+	}
 }
